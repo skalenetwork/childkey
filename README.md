@@ -79,7 +79,7 @@ const receipt = await web3.eth.sendSignedTransaction(signed.rawTransaction); // 
 
 
 ## ChildWallet account balances
-0
+
 
 Since Childwallet exists outside Metamask, the Metamask UI will not display the corresponding balance.
 
@@ -94,14 +94,10 @@ The balance will need to be displayed inside the webpage by using the following 
 
 2.  Derive ```CHILD_WALLET_PRIVATE_KEY``` by from ```SEED_SIGNATURE``` by utilizing BIP-39 key derivation standard, and utilizing ```SEED_SIGNATURE``` as entropy.
 
-## Web sig.
+## Web hijack attack protection.
 
 
-
-
-
-
-
+Since Metamask requires a domain name match to initiate signing, a web page from a malicious domain will not be able to initiate ```CHILD_WALLET_KEY``` derivation.
 
 
 
