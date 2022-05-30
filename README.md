@@ -120,6 +120,6 @@ The balance will need to be displayed inside the webpage UI by using the Web3.js
 ## Web hijack attack protection.
 
 
-Since Metamask requires a domain name match to initiate signing, a web page from a malicious domain will not be able to initiate ```CHILD_WALLET_KEY``` derivation.
+Since Metamask requires a domain name match to initiate signing, a web page from a malicious domain will not be able to initiate ```CHILD_WALLET_PRIVATE_KEY``` derivation.
 
 
