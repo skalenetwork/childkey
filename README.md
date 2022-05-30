@@ -35,15 +35,16 @@ Note: the web application code can define its own warnings and confirmations as 
 
 ## Sample code 
 
-To be completed ...
-
 ```
 // Derive CHILD_WALLET_PRIVATE_KEY 
-TO_BE_COMPLETED
 
 
 const ethNetwork = 'wss://rinkeby.infura.io/ws/v3/PROJECT-ID'
-const web3 = await new Web3(new Web3.providers.WebsocketProvider(ethNetwork))
+const web3 = await new Web3(new Web3.providers.WebsocketProvider(ethNetwork)
+
+
+const CHILD_WALLET_PRIVATE_KEY = await skale.childwallet.derivePrivateKey();
+)
 
 // abi and address defined here
 const contract = await new web3.eth.Contract(abi, address);
