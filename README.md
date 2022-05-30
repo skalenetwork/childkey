@@ -44,12 +44,12 @@ User session initiation requires **two user confirmations**:
   **Requires user confirmation**.   
 
 
-- The ```CHILD_WALLET_PRIVATE_KEY``` instance will stay in browser memory and will be destroyed on web page exit.  
+- The ```CHILD_WALLET_PRIVATE_KEY``` instance will stay in browser memory and can be used for transactions. The in-memory copy of ```CHILD_WALLET_PRIVATE_KEY``` will be destroyed on web page exit. Note that it can always be re-derived by from```PARENT_ACCOUNT```
 
 
 ##  ChildWallet use.
 
-Once ```CHILD_WALLET_PRIVATE_KEY``` is established inside the browser, it can be used to send Ethereum transactions and read balance information for ```ChildWallet``` utilizing any network ID. 
+Once ```CHILD_WALLET_PRIVATE_KEY``` is established inside the browser, it can be used to send Ethereum transactions and read balance information for ```CHILD_WALLET``` utilizing any ```CHAIN_ID```. 
 
 The operation ** will not require any further confirmations ** in Metamask.
 
