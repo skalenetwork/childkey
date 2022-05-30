@@ -40,7 +40,6 @@ To be completed ...
 ```
 // Derive CHILD_WALLET_PRIVATE_KEY 
 TO_BE_COMPLETED
-```
 
 
 const ethNetwork = 'wss://rinkeby.infura.io/ws/v3/PROJECT-ID'
