@@ -15,7 +15,7 @@ Note that ```ChildWallet``` can at any time be derived from ```ParentAccount```.
 
 User session initiation requires two user confirmations:
 
-- User connects the ```ParentAccount``` in Metamask
+- User connects the ```ParentAccount``` in Metamask and switches to the ```ChainID``` of the Dapp.
 
 - The private key ```CHILD_WALLET_PRIVATE_KEY`` of ```ChildWallet``` is derived from ```ParentAccount``` by signing the web page URL using the ```ParentAccount``` as provided by Metamask sign data v4 API  https://docs.metamask.io/guide/signing-data.html#sign-typed-data-v4. This procedure requires a single user confirmation.   
 
@@ -43,13 +43,16 @@ const ethNetwork = 'wss://rinkeby.infura.io/ws/v3/PROJECT-ID'
 const web3 = await new Web3(new Web3.providers.WebsocketProvider(ethNetwork)
 
 
-const CHILD_WALLET_PRIVATE_KEY = await skale.childwallet.derivePrivateKeyForMetamaskAccount();
+const CHILD_WALLET_PRIVATE_KEY = await skale.childwallet.derivePrivateKeyForMetamaskAccount(); // will trigger Metamask sign confirmation
 
 
 // abi and address defined here
 const contract = await new web3.eth.Contract(abi, address);
 
-const account = web3.eth.accounts.privateKeyToAccount(CHILD_WALLET_PRIVATE_KEY)
+
+web3.eth.accounts.wallet.add(PRIVATE_KEY)
+const account = web3.eth.accounts.wallet[0].address
+
 
 // define METHOD_NAME, ARG1, ARG2 here
 const transaction = contract.methods.METHOD_NAME(ARG1, ARG2);
@@ -59,10 +62,33 @@ const options = {
         to: CONTRACT_ADDRESS,
         data: transaction.encodeABI(),
         gas: await transaction.estimateGas({from: account.address}),
-        gasPrice: await web3.eth.getGasPrice()
+        gasPrice: await web3.eth.getGasPrice(),
+        customChain: {
+        name: 'custom-chain',
+        chainId: 1,
+        networkId: 1
+      }        
     };
 
-const signed  = await web3.eth.accounts.signTransaction(options, PRIVATE_KEY);
-const receipt = await web3.eth.sendSignedTransaction(signed.rawTransaction);
+
+
+const signed  = await web3.eth.accounts.signTransaction(options, PRIVATE_KEY); // wont trigger Metamask confirmation
+const receipt = await web3.eth.sendSignedTransaction(signed.rawTransaction); // wont trigger Metemask confirmation
 
 ```
+
+
+## ChildWallet account balances
+
+
+Since Childwallet exists outside Metamask, the Metamask UI will not display the corresponding balance.
+
+The balance will need to be displayed inside the webpage by using the following sample code
+
+
+
+
+
+
+
+
