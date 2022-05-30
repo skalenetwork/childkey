@@ -11,6 +11,24 @@ A child wallet ```CHILD_WALLET``` is derived from an existing Metamask account `
 Note that ```CHILD_WALLET``` can at any time be derived from ```PARENT_ACCOUNT```. The derivation procedure requires a single user confirmation in Metamask.
 
 
+## Example: a sample Game user flow.
+
+1. User accesses the web app for the first time.
+
+2. ```CHILD_WALLET``` is derived and funds are transferred to it from ```PARENT_ACCOUNT```. YThis requires Metamasks confirmations.
+
+3. ```CHILD_WALLET``` is used to purchase game tokens on decentralized exchange.
+
+4.  Game tokens are transferred to Dapp chain where the game is played.
+
+5. The game is played, which includes multiple transactions using ```CHILD_WALLET```.
+
+
+Note that steps 2. - 5. do not require any futher Metamask interactions.
+
+
+
+
 ##  User session initiation (login).
 
 User session initiation requires **two user confirmations**:
@@ -99,19 +117,4 @@ The balance will need to be displayed inside the webpage UI by using the Web3.js
 
 Since Metamask requires a domain name match to initiate signing, a web page from a malicious domain will not be able to initiate ```CHILD_WALLET_KEY``` derivation.
 
-
-## A sample Game user flow.
-
-1. User accesses the web app for the first time.
-
-2. ```CHILD_WALLET``` is derived and funds are transferred to it from ```PARENT_ACCOUNT```
-
-3. ```CHILD_WALLET``` is used to purchase game tokens on decentralized exchange.
-
-4.  Game tokens are transferred to Dapp chain where the game is played.
-
-5. The game is played, which includes multiple transactions using ```CHILD_WALLET```
-
-
-Note that steps 2. - 5. do not require any futher Metamask interactions.
 
