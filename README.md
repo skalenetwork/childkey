@@ -13,7 +13,7 @@ Note that ```CHILD_WALLET``` can at any time be derived from ```PARENT_ACCOUNT``
 
 ## Diagram
 
-https://github.com/skalenetwork/childwallet/blob/a2fc3aa4cc928f7f64c43f3f2896dad51fb7cd13/Screenshot%20from%202022-05-30%2017-30-27.png
+![alt text](https://github.com/skalenetwork/childwallet/blob/a2fc3aa4cc928f7f64c43f3f2896dad51fb7cd13/Screenshot%20from%202022-05-30%2017-30-27.png)
 
 
 ## Example: a sample Game user flow.
