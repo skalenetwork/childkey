@@ -6,18 +6,18 @@ Metamask requires users to manually confirm each network change. This significan
 
 ## Solution
 
-A child wallet ```ChildWallet``` is derived from an existing Metamask account ```ParentAccount```.  ```ChildWallet``` exists inside the browser and may be used for multiple networks and multiple transactions, without requiring Metamask confirmation.
+A child wallet ```CHILD_WALLET``` is derived from an existing Metamask account ```PARENT_ACCOUNT```.  ``CHILD_WALLET``` exists inside the browser and may be used for multiple networks and multiple transactions, without requiring Metamask confirmation.
 
-Note that ```ChildWallet``` can at any time be derived from ```ParentAccount```. The derivation procedure requires a single user confirmation in Metamask.
+Note that ```CHILD_WALLET``` can at any time be derived from ```PARENT_ACCOUNT```. The derivation procedure requires a single user confirmation in Metamask.
 
 
 ##  User session initiation (login).
 
 User session initiation requires **two user confirmations**:
 
-- User connects the ```ParentAccount``` in Metamask and switches to the ```ChainID``` of the Dapp. **Requires user confirmation**.
+- User connects the ```PARENT_ACCOUNT``` in Metamask and switches to the ```CHAIN_ID``` of the Dapp. **Requires user confirmation**.
 
-- The private key ```CHILD_WALLET_PRIVATE_KEY`` of ```ChildWallet``` is derived from ```ParentAccount``` by signing the web page URL using the ```ParentAccount``` as provided by Metamask sign data v4 API  https://docs.metamask.io/guide/signing-data.html#sign-typed-data-v4. 
+- The private key ```CHILD_WALLET_PRIVATE_KEY`` of ```CHILD_WALLET``` is derived from ```PARENT_ACCOUNT``` by signing the web page URL using the ```ParentAccount```.
   **Requires user confirmation**.   
 
 
@@ -79,11 +79,25 @@ const receipt = await web3.eth.sendSignedTransaction(signed.rawTransaction); // 
 
 
 ## ChildWallet account balances
-
+0
 
 Since Childwallet exists outside Metamask, the Metamask UI will not display the corresponding balance.
 
 The balance will need to be displayed inside the webpage by using the following sample code
+
+
+## ChildWallet key derivation spec.
+
+```CHILD_WALLET_PRIVATE_KEY``` is derived in two steps:
+
+1. Create ```SEED_SIGNATURE``` byte sequence by signing the the current domain name string and using ```PARENT_ACCOUNT``` and utilizing Metamask sign data v4 API  https://docs.metamask.io/guide/signing-data.html#sign-typed-data-v4. 
+
+2.  Derive ```CHILD_WALLET_PRIVATE_KEY``` by from ```SEED_SIGNATURE``` by utilizing BIP-39 key derivation standard, and utilizing ```SEED_SIGNATURE``` as entropy.
+
+## Web sig.
+
+
+
 
 
 
