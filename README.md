@@ -43,8 +43,8 @@ const ethNetwork = 'wss://rinkeby.infura.io/ws/v3/PROJECT-ID'
 const web3 = await new Web3(new Web3.providers.WebsocketProvider(ethNetwork)
 
 
-const CHILD_WALLET_PRIVATE_KEY = await skale.childwallet.derivePrivateKey();
-)
+const CHILD_WALLET_PRIVATE_KEY = await skale.childwallet.derivePrivateKeyForMetamaskAccount();
+
 
 // abi and address defined here
 const contract = await new web3.eth.Contract(abi, address);
