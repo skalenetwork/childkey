@@ -83,7 +83,7 @@ const receipt = await web3.eth.sendSignedTransaction(signed.rawTransaction); // 
 
 Since Childwallet exists outside Metamask, the Metamask UI will not display the corresponding balance.
 
-The balance will need to be displayed inside the webpage by using the following sample code
+The balance will need to be displayed inside the webpage UI by using the Web3.js ``` web3.eth.getBalance``` call.
 
 
 ## ChildWallet key derivation spec.
