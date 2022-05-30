@@ -6,7 +6,7 @@ Metamask requires users to manually confirm each network change. This significan
 
 ## Solution
 
-A child wallet ```CHILD_WALLET``` is derived from an existing Metamask account ```PARENT_ACCOUNT```.  ``CHILD_WALLET``` exists inside the browser and may be used for multiple networks and multiple transactions, without requiring Metamask confirmation.
+A child wallet ```CHILD_WALLET``` is derived from an existing Metamask account ```PARENT_ACCOUNT```.  CHILD_WALLET exists inside the browser and may be used for multiple networks and multiple transactions, without requiring Metamask confirmation.
 
 Note that ```CHILD_WALLET``` can at any time be derived from ```PARENT_ACCOUNT```. The derivation procedure requires a single user confirmation in Metamask.
 
