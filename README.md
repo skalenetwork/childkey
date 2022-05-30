@@ -40,7 +40,7 @@ User session initiation requires **two user confirmations**:
 
 - User connects the ```PARENT_ACCOUNT``` in Metamask and switches to the ```CHAIN_ID``` of the Dapp. **Requires user confirmation**.
 
-- The private key ```CHILD_WALLET_PRIVATE_KEY`` of ```CHILD_WALLET``` is derived from ```PARENT_ACCOUNT``` by signing the web page URL using the ```ParentAccount```.
+- The private key ```CHILD_WALLET_PRIVATE_KEY``` of ```CHILD_WALLET``` is derived from ```PARENT_ACCOUNT``` by signing the web page URL using the ```PARENT_ACCOUNT```.
   **Requires user confirmation**.   
 
 
