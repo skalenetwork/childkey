@@ -11,6 +11,11 @@ A child wallet ```CHILD_WALLET``` is derived from an existing Metamask account `
 Note that ```CHILD_WALLET``` can at any time be derived from ```PARENT_ACCOUNT```. The derivation procedure requires a single user confirmation in Metamask.
 
 
+## Diagram
+
+https://github.com/skalenetwork/childwallet/blob/a2fc3aa4cc928f7f64c43f3f2896dad51fb7cd13/Screenshot%20from%202022-05-30%2017-30-27.png
+
+
 ## Example: a sample Game user flow.
 
 1. User accesses the web app for the first time.
