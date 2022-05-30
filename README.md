@@ -6,31 +6,31 @@ Metamask requires users to manually confirm each network change. This significan
 
 ## Solution
 
-A child wallet ```ChildWallet``` is derived from an existing Metamask account ```ParentAccount```.  ```ChildWallet``` exists inside the browser and may be used for multiple networks, without requiring user confirmation.
+A child wallet ```ChildWallet``` is derived from an existing Metamask account ```ParentAccount```.  ```ChildWallet``` exists inside the browser and may be used for multiple networks and multiple transactions, without requiring Metamask confirmation.
 
 Note that ```ChildWallet``` can at any time be derived from ```ParentAccount```. The derivation procedure requires a single user confirmation in Metamask.
 
 
 ##  User session initiation (login).
 
-User session initiation requires two user confirmations:
+User session initiation requires **two user confirmations**:
 
-- User connects the ```ParentAccount``` in Metamask and switches to the ```ChainID``` of the Dapp.
+- User connects the ```ParentAccount``` in Metamask and switches to the ```ChainID``` of the Dapp. **Requires user confirmation**.
 
-- The private key ```CHILD_WALLET_PRIVATE_KEY`` of ```ChildWallet``` is derived from ```ParentAccount``` by signing the web page URL using the ```ParentAccount``` as provided by Metamask sign data v4 API  https://docs.metamask.io/guide/signing-data.html#sign-typed-data-v4. This procedure requires a single user confirmation.   
+- The private key ```CHILD_WALLET_PRIVATE_KEY`` of ```ChildWallet``` is derived from ```ParentAccount``` by signing the web page URL using the ```ParentAccount``` as provided by Metamask sign data v4 API  https://docs.metamask.io/guide/signing-data.html#sign-typed-data-v4. 
+  **Requires user confirmation**.   
 
 
-- The ```CHILD_WALLET_PRIVATE_KEY``` instance will stay in browser memory and will be destroyed on web page exit.   
+- The ```CHILD_WALLET_PRIVATE_KEY``` instance will stay in browser memory and will be destroyed on web page exit.  
 
 
 ##  ChildWallet use.
 
-Once ```CHILD_WALLET_PRIVATE_KEY``` is established inside the browser, it can be used to send Ethereum transactions and read balance information for ```ChildWallet``` utilizing any network ID.  
+Once ```CHILD_WALLET_PRIVATE_KEY``` is established inside the browser, it can be used to send Ethereum transactions and read balance information for ```ChildWallet``` utilizing any network ID. 
 
-The operation will not require any further confirmations from Metamask.
+The operation ** will not require any further confirmations ** in Metamask.
 
 Note: the web application code can define its own warnings and confirmations as needed.
-
 
 
 ## Sample code 
